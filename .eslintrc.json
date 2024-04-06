@@ -1,10 +1,11 @@
 {
-  "extends": ["next/core-web-vitals"],
+  "extends": ["next", "prettier"],
   "rules": {
+    "indent": ["error", 2],
     "quotes": ["error", "double"],
     "object-curly-spacing": ["error", "always"],
     "comma-dangle": ["error", "always-multiline"],
-		"react-hooks/exhaustive-deps": "off",
-		"react-hooks/rules-of-hooks": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "react-hooks/rules-of-hooks": "off"
   }
 }

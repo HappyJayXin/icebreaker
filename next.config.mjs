@@ -1,5 +1,5 @@
 const nextConfig = {
-	images: {
+  images: {
     domains: ['dummyimage.com'],
   },
 };
