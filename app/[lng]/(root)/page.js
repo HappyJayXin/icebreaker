@@ -1,5 +1,5 @@
-import CardGrid from './CardGrid';
-import data from './data';
+import CardGrid from "./CardGrid";
+import data from "./data";
 
 const HomePage = () => {
   return (

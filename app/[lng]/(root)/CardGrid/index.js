@@ -1,4 +1,4 @@
-import SceneCard from '../SceneCard';
+import SceneCard from "../SceneCard";
 
 const CardGrid = ({ scenes }) => {
   return (
