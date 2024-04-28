@@ -1,19 +1,19 @@
-import { Noto_Sans } from "next/font/google";
-import "./globals.css";
+import { Noto_Sans } from 'next/font/google';
+import './globals.css';
 
-import { dir } from "i18next";
-import { languages } from "@/app/i18n/settings";
+import { dir } from 'i18next';
+import { languages } from '@/app/i18n/settings';
 
-import Header from "@/app/[lng]/components/Header";
-import Footer from "@/app/[lng]/components/Footer";
+import Header from '@/app/[lng]/components/Header';
+import Footer from '@/app/[lng]/components/Footer';
 
-import { Providers } from "@/redux/provider";
-import { useTranslation } from "@/app/i18n";
+import { Providers } from '@/redux/provider';
+import { useTranslation } from '@/app/i18n';
 
 const notoSans = Noto_Sans({
-  subsets: ["latin"],
-  display: "fallback",
-  variable: "--font-noto-sans",
+  subsets: ['latin'],
+  display: 'fallback',
+  variable: '--font-noto-sans',
 });
 
 export const generateStaticParams = async () => {
@@ -23,9 +23,9 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({ params: { lng } }) => {
   const { t } = await useTranslation(lng);
   return {
-    title: t("app_title"),
-    description: t("app_desc"),
-    authors: [{ name: "Jay Chen", url: "https://github.com/HappyJayXin" }],
+    title: t('app_title'),
+    description: t('app_desc'),
+    authors: [{ name: 'Jay Chen', url: 'https://github.com/HappyJayXin' }],
   };
 };
 

@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { usePathname, useRouter } from "next/navigation";
-import { useTranslation } from "@/app/i18n";
-import { languages, languageOptions } from "@/app/i18n/settings";
+import { usePathname, useRouter } from 'next/navigation';
+import { useTranslation } from '@/app/i18n';
+import { languages, languageOptions } from '@/app/i18n/settings';
 
 const Footer = ({ lng }) => {
   const currentYear = new Date().getFullYear();
 
   const router = useRouter();
   const pathname = usePathname();
-  const { t } = useTranslation(lng, "common");
+  const { t } = useTranslation(lng, 'common');
 
   const handleChangeLanguage = (selectedLang) => {
     const newURL = pathname.replace(lng, selectedLang);
@@ -31,18 +31,12 @@ const Footer = ({ lng }) => {
           ))}
         </select>
 
-        <a
-          href='https://github.com/HappyJayXin'
-          target='_blank'
-          className='font-medium'
-        >
+        <a href='https://github.com/HappyJayXin' target='_blank' className='font-medium'>
           GitHub
         </a>
       </div>
 
-      <div className='font-medium'>
-        © {currentYear} Jay Chen. All rights reserved.
-      </div>
+      <div className='font-medium'>© {currentYear} Jay Chen. All rights reserved.</div>
     </footer>
   );
 };

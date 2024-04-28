@@ -9,7 +9,8 @@
     "prebuild": "npm run lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --check --ignore-path .gitignore .",
-    "format:fix": "prettier --write --ignore-path .gitignore ."
+    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
@@ -30,6 +31,8 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "eslint-config-prettier": "^9.1.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.2",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.13",
