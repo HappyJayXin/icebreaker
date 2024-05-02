@@ -31,7 +31,7 @@ export const generateMetadata = async ({ params: { lng } }) => {
 
 const RootLayout = async ({ children, params: { lng } }) => {
   return (
-    <html lang={lng} dir={dir(lng)}>
+    <html lang={lng} dir={dir(lng)} data-theme='cupcake'>
       <head />
       <body className={notoSans.variable}>
         <Providers>

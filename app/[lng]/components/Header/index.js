@@ -3,10 +3,10 @@ import logo from '@/public/images/logo_life_decider.png';
 
 const Header = () => {
   return (
-    <header className='flex items-center justify-start bg-primary p-4'>
-      <div>
-        <Image src={logo} alt='Life Decider Logo' width={60} height={60} />
-      </div>
+    <header className='navbar bg-base-300'>
+      <a className='btn btn-ghost text-xl'>
+        <Image src={logo} alt='Logo' width={50} height={50} />
+      </a>
     </header>
   );
 };

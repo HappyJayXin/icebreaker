@@ -17,12 +17,12 @@ const Footer = ({ lng }) => {
   };
 
   return (
-    <footer className='flex flex-wrap items-center justify-between bg-secondary p-4'>
+    <footer className='flex flex-wrap items-center justify-between bg-primary p-4'>
       <div className='flex items-center space-x-4'>
         <select
+          className='select select-bordered w-full max-w-xs'
           onChange={(e) => handleChangeLanguage(e.target.value)}
           value={lng}
-          className='focus:shadow-outline h-10 rounded-md border border-gray-300 bg-white pl-3 pr-6 text-base text-gray-700 placeholder-gray-600'
         >
           {languages.map((language) => (
             <option key={language} value={language}>
@@ -31,12 +31,14 @@ const Footer = ({ lng }) => {
           ))}
         </select>
 
-        <a href='https://github.com/HappyJayXin' target='_blank' className='font-medium'>
+        <a href='https://github.com/HappyJayXin' target='_blank' className='link-hover link'>
           GitHub
         </a>
       </div>
 
-      <div className='font-medium'>© {currentYear} Jay Chen. All rights reserved.</div>
+      <article class='prose'>
+        <p>© {currentYear} Jay Chen. All rights reserved.</p>
+      </article>
     </footer>
   );
 };
