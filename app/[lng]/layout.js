@@ -33,10 +33,10 @@ const RootLayout = async ({ children, params: { lng } }) => {
   return (
     <html lang={lng} dir={dir(lng)} data-theme='cupcake'>
       <head />
-      <body className={notoSans.variable}>
+      <body className={`${notoSans.variable} flex h-screen flex-col`}>
         <Providers>
           <Header />
-          {children}
+          <main className='flex-1 overflow-y-auto'>{children}</main>
           <Footer lng={lng} />
         </Providers>
       </body>

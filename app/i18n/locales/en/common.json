@@ -1,4 +1,6 @@
 {
   "app_title": "Life Decider",
-  "app_desc": "This decision assistant provides action recommendations based on different time periods, integrating user-customized content and APIs to achieve dynamic decision support."
+  "app_desc": "This decision assistant provides action recommendations based on different time periods, integrating user-customized content and APIs to achieve dynamic decision support.",
+
+  "home_title": "What Are You Deciding ? Share It With Us !"
 }
