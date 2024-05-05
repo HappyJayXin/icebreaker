@@ -1,15 +1,15 @@
-export const fallbackLng = 'zh-TW';
-export const defaultNS = 'common';
-export const cookieName = 'i18next';
+export const fallbackLng = "zh-TW";
+export const defaultNS = "common";
+export const cookieName = "i18next";
 
 export const languageOptions = {
-  'zh-TW': {
-    label: '繁體中文',
-    value: 'zh-TW',
+  "zh-TW": {
+    label: "繁體中文",
+    value: "zh-TW",
   },
   en: {
-    label: 'English',
-    value: 'en',
+    label: "English",
+    value: "en",
   },
 };
 export const languages = Object.keys(languageOptions);

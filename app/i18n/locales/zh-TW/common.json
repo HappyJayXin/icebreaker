@@ -2,5 +2,8 @@
   "app_title": "生活決策助手",
   "app_desc": "這個決策助手可以根據不同時間段提供行動建議，並整合了用戶自訂內容以及 API，實現了動態的決策支援。",
 
-  "home_title": "您正在做什麼決定？告訴我們吧！"
+  "input_search_placeholder": "輸入您正在考慮的決定",
+  "aria_search_input": "搜尋輸入欄位",
+
+  "home_title": "您正在做什麼決定？\n告訴我們吧！"
 }

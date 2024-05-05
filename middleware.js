@@ -1,1 +1,1 @@
-export * from '@/app/i18n/middleware';
+export * from "@/app/i18n/middleware";

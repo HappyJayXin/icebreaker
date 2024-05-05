@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import { makeStore } from './store';
-import { Provider } from 'react-redux';
+import { useRef } from "react";
+import { makeStore } from "./store";
+import { Provider } from "react-redux";
 
 export const Providers = ({ children }) => {
   const storeRef = useRef();
