@@ -4,6 +4,7 @@
 
   "input_search_placeholder": "Input your decision",
   "aria_search_input": "Search input field",
+  "loading_result": "Querying results, please wait...",
 
   "home_title": "What Are You Deciding ?\nShare It With Us !"
 }

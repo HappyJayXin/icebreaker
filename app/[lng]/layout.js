@@ -7,7 +7,7 @@ import { languages } from "@/app/i18n/settings";
 import Header from "@/app/[lng]/components/Header";
 import Footer from "@/app/[lng]/components/Footer";
 
-import { Providers } from "@/redux/provider";
+import { Providers } from "@/app/store/provider";
 import { useTranslation } from "@/app/i18n";
 
 const notoSans = Noto_Sans({

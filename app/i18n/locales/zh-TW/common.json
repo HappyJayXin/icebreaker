@@ -4,6 +4,7 @@
 
   "input_search_placeholder": "輸入您正在考慮的決定",
   "aria_search_input": "搜尋輸入欄位",
+  "loading_result": "正在查詢結果，請稍候...",
 
   "home_title": "您正在做什麼決定？\n告訴我們吧！"
 }
