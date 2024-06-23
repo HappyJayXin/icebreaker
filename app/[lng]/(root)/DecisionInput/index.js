@@ -6,7 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
 import InputText from "@/app/[lng]/components/InputText";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDecision, setProgress, resetDecision } from "./slices/decisionSlice";
+import { fetchDecision, setProgress, resetDecision } from "./decisionSlice";
 import { STATUS } from "@/app/constants";
 
 const DecisionInput = () => {

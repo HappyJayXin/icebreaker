@@ -1,0 +1,4 @@
+{
+  "partial_data": "Partial data received from the server",
+  "miss_query": "Required query parameter is missing"
+}

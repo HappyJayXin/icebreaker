@@ -6,6 +6,7 @@ import { languages } from "@/app/i18n/settings";
 
 import Header from "@/app/[lng]/components/Header";
 import Footer from "@/app/[lng]/components/Footer";
+import Toast from "@/app/[lng]/components/Toast";
 
 import { Providers } from "@/app/store/provider";
 import { useTranslation } from "@/app/i18n";
@@ -38,6 +39,7 @@ const RootLayout = async ({ children, params: { lng } }) => {
           <Header />
           <main className="flex-1 overflow-y-auto">{children}</main>
           <Footer lng={lng} />
+          <Toast lng={lng} />
         </Providers>
       </body>
     </html>

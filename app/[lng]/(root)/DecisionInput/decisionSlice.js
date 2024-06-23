@@ -1,18 +1,24 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { STATUS } from "@/app/constants";
 
+import { showToast } from "@/app/[lng]/components/Toast/toastSlice";
+import { MESSAGES } from "@/app/[lng]/components/Toast/data";
+
 export const fetchDecision = createAsyncThunk(
   "decision/fetchDecision",
-  async (params, { rejectWithValue }) => {
+  async (params, { dispatch }) => {
     try {
       if (!params.query) {
-        return rejectWithValue("Query is missing");
+        dispatch(showToast(MESSAGES.miss_query));
+        throw new Error(MESSAGES.miss_query.text);
       }
 
       const response = await fetch("https://yesno.wtf/api");
       const data = await response.json();
+
       if (!data.answer || !data.image) {
-        return rejectWithValue("Incomplete data received from API");
+        dispatch(showToast(MESSAGES.partial_data));
+        throw new Error(MESSAGES.partial_data.text);
       }
 
       return {
@@ -22,6 +28,7 @@ export const fetchDecision = createAsyncThunk(
       };
     } catch (error) {
       console.error(error);
+      throw error;
     }
   }
 );
@@ -32,7 +39,6 @@ const initialState = {
   answer: "",
   image: "",
   status: "idle",
-  error: null,
 };
 
 const decisionSlice = createSlice({
@@ -61,7 +67,6 @@ const decisionSlice = createSlice({
       .addCase(fetchDecision.rejected, (state, action) => {
         state.progress = 0;
         state.status = STATUS.FAILED;
-        state.error = action.payload || action.error.message;
       });
   },
 });
