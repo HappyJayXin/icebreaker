@@ -34,7 +34,20 @@ import Icon from "@/app/[lng]/components/Icon";
 <Icon type="close" />;
 ```
 
-在 Icon 元件中傳遞不同的 `type` 屬性來使用不同種類 Icon。
+### 使用 Toast
+
+使用了 Redux 來管理 Toast 通知功能，並結合 DaisyUI 的樣式進行顯示：
+
+顯示 Toast
+```jsx
+import { useDispatch } from 'react-redux';
+import { showToast } from '@/app/[lng]/components/Toast/toastSlice';
+import { MESSAGES } from "@/app/[lng]/components/Toast/data";
+
+const dispatch = useDispatch();
+
+dispatch(showToast(MESSAGES.custom_message));
+```
 
 ## 其他
 
