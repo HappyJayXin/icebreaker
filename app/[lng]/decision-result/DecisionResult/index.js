@@ -1,49 +1,36 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useTranslation } from "@/app/i18n/client";
+import clsx from "clsx";
 
-const DecisionResult = ({ answer, image, query }) => {
-  const router = useRouter();
+const getAnswerText = (answer) => {
+  const randomIndex = Math.floor(Math.random() * 3) + 1;
+  return `${answer}_${randomIndex}`;
+};
 
-  const handleShare = () => {
-    const shareData = {
-      title: "Decision Result",
-      text: `The decision is: ${decision.answer}. It's ${decision.answer === "yes" ? "suitable" : "not suitable"} to do this.`,
-      url: window.location.href,
-    };
-
-    try {
-      navigator.share(shareData);
-    } catch (err) {
-      console.error("Error sharing:", err);
-    }
-  };
+const DecisionResult = ({ lng, answer, image, query }) => {
+  const { t } = useTranslation(lng);
+  const [isLoading, setIsLoading] = useState(true);
+  const answerText = getAnswerText(answer);
 
   return (
-    <div className="text-center">
-      <div className="mb-4">
-        <h2 className="text-xl font-semibold">Your Query:</h2>
-        <p className="text-lg font-bold">{query}</p>
-      </div>
-
-      <div className="mb-4">
-        <h2 className="text-xl font-semibold">Result:</h2>
-        <p className={`text-2xl font-bold ${answer === "yes" ? "text-green-500" : "text-red-500"}`}>
-          {answer.toUpperCase()}
-        </p>
-        <img src={image} alt={answer} className="mx-auto mt-4 rounded-lg shadow-md" />
-      </div>
-
-      <div className="mt-4 flex flex-col gap-4">
-        <button className="rounded bg-green-500 px-4 py-2 text-white" onClick={handleShare}>
-          Share Result
-        </button>
-        <button
-          className="rounded bg-blue-500 px-4 py-2 text-white"
-          onClick={() => router.push("/")}
-        >
-          Back to Home
-        </button>
+    <div>
+      <figure className="pb-5">
+        {isLoading && <div className="skeleton h-48 w-full sm:h-[300px] sm:w-[400px]" />}
+        <img
+          src={image}
+          alt={answer}
+          className={clsx("h-48 w-full rounded-xl object-cover sm:h-[300px] sm:w-[400px]", {
+            hidden: isLoading,
+            block: !isLoading,
+          })}
+          onLoad={() => setIsLoading(false)}
+        />
+      </figure>
+      <div className="px-5 text-center">
+        <h2 className="mb-1 text-3xl font-bold">{t(answerText)}</h2>
+        <p className="text-lg">{query}</p>
       </div>
     </div>
   );

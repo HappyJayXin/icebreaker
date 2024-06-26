@@ -6,5 +6,13 @@
   "aria_search_input": "Search input field",
   "loading_result": "Querying results, please wait...",
 
-  "home_title": "What Are You Deciding ?\nShare It With Us !"
+  "home_title": "What Are You Deciding ?\nShare It With Us !",
+
+  "yes_1": "Absolutely!",
+  "yes_2": "Yes, that's correct!",
+  "yes_3": "No problem!",
+
+  "no_1": "Not quite right, try again",
+  "no_2": "Unfortunately, the answer is no",
+  "no_3": "Think again"
 }

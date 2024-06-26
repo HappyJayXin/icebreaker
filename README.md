@@ -39,9 +39,10 @@ import Icon from "@/app/[lng]/components/Icon";
 使用了 Redux 來管理 Toast 通知功能，並結合 DaisyUI 的樣式進行顯示：
 
 顯示 Toast
+
 ```jsx
-import { useDispatch } from 'react-redux';
-import { showToast } from '@/app/[lng]/components/Toast/toastSlice';
+import { useDispatch } from "react-redux";
+import { showToast } from "@/app/[lng]/components/Toast/toastSlice";
 import { MESSAGES } from "@/app/[lng]/components/Toast/data";
 
 const dispatch = useDispatch();
