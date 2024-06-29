@@ -9,8 +9,8 @@ const DecisionResult = ({ lng, answerText, image, query }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div>
-      <figure className="pb-5">
+    <div className="card bg-base-100 shadow-xl lg:card-side">
+      <figure>
         {isLoading && <div className="skeleton h-48 w-full sm:h-[300px] sm:w-[400px]" />}
         <img
           src={image}
@@ -22,9 +22,12 @@ const DecisionResult = ({ lng, answerText, image, query }) => {
           onLoad={() => setIsLoading(false)}
         />
       </figure>
-      <div className="px-5 text-center">
-        <h2 className="mb-1 text-3xl font-bold">{t(answerText)}</h2>
-        <p className="text-lg">{query}</p>
+      <div className="card-body">
+        <h2 className="card-title text-left text-2xl">{query}</h2>
+        <p className="text-left text-xl font-medium">{t(answerText)}</p>
+        {/* <div className="card-actions justify-end">
+          <button className="btn btn-primary"></button>
+        </div> */}
       </div>
     </div>
   );

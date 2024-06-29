@@ -8,7 +8,7 @@ const HomePage = async ({ params: { lng } }) => {
   return (
     <div className="hero min-h-full bg-base-200">
       <div className="hero-content text-center">
-        <div className="flex max-w-md flex-col gap-5 md:max-w-xl">
+        <div className="flex max-w-full flex-col gap-5 md:max-w-screen-sm">
           <h1 className="whitespace-pre-wrap text-5xl font-bold leading-tight">
             {t("home_title")}
           </h1>
