@@ -21,10 +21,16 @@ export const fetchDecision = createAsyncThunk(
         throw new Error(MESSAGES.partial_data.text);
       }
 
+      const getAnswerText = (answer) => {
+        const randomIndex = Math.floor(Math.random() * 3) + 1;
+        return `${answer}_${randomIndex}`;
+      };
+
       return {
         answer: data.answer,
         image: data.image,
         query: params.query,
+        answerText: getAnswerText(data.answer),
       };
     } catch (error) {
       console.error(error);
@@ -37,6 +43,7 @@ const initialState = {
   progress: 0,
   query: "",
   answer: "",
+  answerText: "",
   image: "",
   status: "idle",
 };
@@ -60,6 +67,7 @@ const decisionSlice = createSlice({
       .addCase(fetchDecision.fulfilled, (state, action) => {
         state.status = STATUS.SUCCEEDED;
         state.answer = action.payload.answer;
+        state.answerText = action.payload.answerText;
         state.image = action.payload.image;
         state.query = action.payload.query;
         state.progress = 100;

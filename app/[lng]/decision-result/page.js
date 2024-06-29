@@ -2,9 +2,9 @@ import { redirect } from "next/navigation";
 import DecisionResult from "./DecisionResult";
 
 const ResultPage = ({ searchParams, params: { lng } }) => {
-  const { answer, image, query } = searchParams;
+  const { answerText, image, query } = searchParams;
 
-  if (!answer || !image || !query) {
+  if (!answerText || !image || !query) {
     redirect("/");
   }
 
@@ -12,7 +12,7 @@ const ResultPage = ({ searchParams, params: { lng } }) => {
     <div className="hero min-h-full bg-base-200">
       <div className="hero-content text-center">
         <div className="flex max-w-md flex-col gap-5 md:max-w-xl">
-          <DecisionResult lng={lng} answer={answer} image={image} query={query} />
+          <DecisionResult lng={lng} answerText={answerText} image={image} query={query} />
         </div>
       </div>
     </div>

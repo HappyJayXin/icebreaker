@@ -4,15 +4,9 @@ import { useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import clsx from "clsx";
 
-const getAnswerText = (answer) => {
-  const randomIndex = Math.floor(Math.random() * 3) + 1;
-  return `${answer}_${randomIndex}`;
-};
-
-const DecisionResult = ({ lng, answer, image, query }) => {
+const DecisionResult = ({ lng, answerText, image, query }) => {
   const { t } = useTranslation(lng);
   const [isLoading, setIsLoading] = useState(true);
-  const answerText = getAnswerText(answer);
 
   return (
     <div>
@@ -20,7 +14,7 @@ const DecisionResult = ({ lng, answer, image, query }) => {
         {isLoading && <div className="skeleton h-48 w-full sm:h-[300px] sm:w-[400px]" />}
         <img
           src={image}
-          alt={answer}
+          alt={t(answerText)}
           className={clsx("h-48 w-full rounded-xl object-cover sm:h-[300px] sm:w-[400px]", {
             hidden: isLoading,
             block: !isLoading,

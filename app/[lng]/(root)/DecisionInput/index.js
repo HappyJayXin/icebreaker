@@ -25,7 +25,7 @@ const DecisionInput = () => {
     if (decision.status === STATUS.SUCCEEDED) {
       setTimeout(() => {
         const query = new URLSearchParams({
-          answer: decision.answer,
+          answerText: decision.answerText,
           image: decision.image,
           query: decision.query,
         }).toString();
