@@ -7,12 +7,12 @@ const InputText = ({ t, onSubmit, isSearch = false }) => {
   const [value, setValue] = useState("");
 
   const handleChange = (event) => {
-    setValue(event.target.value.trim());
+    setValue(event.target.value);
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      onSubmit(value);
+    if (event.key === "Enter" && value.trim() !== "") {
+      onSubmit(value.trim());
     }
   };
 
@@ -37,7 +37,7 @@ const InputText = ({ t, onSubmit, isSearch = false }) => {
         </button>
       )}
       {isSearch && (
-        <button onClick={() => onSubmit(value)}>
+        <button onClick={() => value.trim() !== "" && onSubmit(value.trim())}>
           <Icon type="search" />
         </button>
       )}
