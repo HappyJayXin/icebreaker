@@ -12,6 +12,7 @@ const HomePage = async ({ params: { lng } }) => {
           <h1 className="whitespace-pre-wrap text-5xl font-bold leading-tight">
             {t("home_title")}
           </h1>
+          <p>{t("home_desc")}</p>
           <DecisionInput />
           <RecentHistory />
         </div>

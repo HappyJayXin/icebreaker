@@ -8,11 +8,14 @@ import InputText from "@/app/[lng]/components/InputText";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDecision, setProgress, resetDecision } from "./decisionSlice";
 import { STATUS } from "@/app/constants";
+import { useRandomPlaceholder } from "./hooks";
 
 const DecisionInput = () => {
   const router = useRouter();
   const { lng } = useParams();
   const { t } = useTranslation(lng);
+  const placeholder = useRandomPlaceholder();
+
   const dispatch = useDispatch();
   const decision = useSelector((state) => state.decision);
 
@@ -62,7 +65,12 @@ const DecisionInput = () => {
 
   return (
     <>
-      <InputText t={t} isSearch onSubmit={onSubmit} />
+      <InputText
+        isSearch
+        onSubmit={onSubmit}
+        placeholder={t(placeholder)}
+        ariaLabel={t("input_search_aria")}
+      />
 
       <dialog id="my_modal_1" className={modalClass}>
         <div className="modal-box w-60 max-w-60">

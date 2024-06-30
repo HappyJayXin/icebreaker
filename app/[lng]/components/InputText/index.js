@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Icon from "@/app/[lng]/components/Icon";
 
-const InputText = ({ t, onSubmit, isSearch = false }) => {
+const InputText = ({ onSubmit, placeholder, ariaLabel, isSearch = false }) => {
   const [value, setValue] = useState("");
 
   const handleChange = (event) => {
@@ -25,11 +25,11 @@ const InputText = ({ t, onSubmit, isSearch = false }) => {
       <input
         type="text"
         className="grow"
-        placeholder={t("input_search_placeholder")}
+        placeholder={placeholder}
         value={value}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        aria-label={t("input_search_aria")}
+        aria-label={ariaLabel}
       />
       {value && (
         <button onClick={clearInput}>
