@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Icon from "@/app/[lng]/components/Icon";
+import Icon from "@/app/components/Icon";
 
 const InputText = ({ onSubmit, placeholder, ariaLabel, isSearch = false }) => {
   const [value, setValue] = useState("");

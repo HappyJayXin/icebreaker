@@ -4,9 +4,9 @@ import "./globals.css";
 import { dir } from "i18next";
 import { languages } from "@/app/i18n/settings";
 
-import Header from "@/app/[lng]/components/Header";
-import Footer from "@/app/[lng]/components/Footer";
-import Toast from "@/app/[lng]/components/Toast";
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
+import Toast from "@/app/components/Toast";
 
 import { Providers } from "@/app/store/provider";
 import { useTranslation } from "@/app/i18n";

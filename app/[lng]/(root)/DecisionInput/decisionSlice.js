@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { STATUS } from "@/app/constants";
 
-import { showToast } from "@/app/[lng]/components/Toast/toastSlice";
-import { MESSAGES } from "@/app/[lng]/components/Toast/data";
+import { showToast } from "@/app/components/Toast/toastSlice";
+import { MESSAGES } from "@/app/components/Toast/data";
 
 export const fetchDecision = createAsyncThunk(
   "decision/fetchDecision",

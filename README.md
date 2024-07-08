@@ -29,7 +29,7 @@ DaisyUI 提供了一系列預先設計好的元件，快速建立美觀的 UI。
 在專案中使用自定義 Icon 元件來管理 Icon：
 
 ```jsx
-import Icon from "@/app/[lng]/components/Icon";
+import Icon from "@/app/components/Icon";
 
 <Icon type="close" />;
 ```
@@ -42,8 +42,8 @@ import Icon from "@/app/[lng]/components/Icon";
 
 ```jsx
 import { useDispatch } from "react-redux";
-import { showToast } from "@/app/[lng]/components/Toast/toastSlice";
-import { MESSAGES } from "@/app/[lng]/components/Toast/data";
+import { showToast } from "@/app/components/Toast/toastSlice";
+import { MESSAGES } from "@/app/components/Toast/data";
 
 const dispatch = useDispatch();
 
