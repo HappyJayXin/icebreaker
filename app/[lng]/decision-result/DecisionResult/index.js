@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
+import { useRouter } from "next/navigation";
 import clsx from "clsx";
 
 const DecisionResult = ({ lng, answerText, image, query }) => {
   const { t } = useTranslation(lng);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
 
   return (
     <div className="card bg-base-100 shadow-xl lg:card-side">
@@ -25,9 +27,11 @@ const DecisionResult = ({ lng, answerText, image, query }) => {
       <div className="card-body">
         <h2 className="card-title text-left text-2xl">{query}</h2>
         <p className="text-left text-xl font-medium">{t(answerText)}</p>
-        {/* <div className="card-actions justify-end">
-          <button className="btn btn-primary"></button>
-        </div> */}
+        <div className="card-actions mt-4 justify-end">
+          <button className="btn btn-primary" onClick={() => router.push("/")}>
+            {t("continue_asking")}
+          </button>
+        </div>
       </div>
     </div>
   );

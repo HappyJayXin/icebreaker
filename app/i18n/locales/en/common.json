@@ -17,5 +17,7 @@
 
   "no_1": "Not quite right, try again",
   "no_2": "Unfortunately, the answer is no",
-  "no_3": "Think again"
+  "no_3": "Think again",
+
+  "continue_asking": "Continue Asking"
 }
