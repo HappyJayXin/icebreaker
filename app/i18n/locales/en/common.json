@@ -2,9 +2,9 @@
   "app_title": "Life Decider",
   "app_desc": "This decision assistant provides action recommendations based on different time periods, integrating user-customized content and APIs to achieve dynamic decision support.",
 
-  "input_search_placeholder_1": "Example: Should I work overtime tonight?",
-  "input_search_placeholder_2": "Example: Should I go out this weekend?",
-  "input_search_placeholder_3": "Example: Should I exercise today?",
+  "input_search_placeholder_1": "Should I work overtime tonight?",
+  "input_search_placeholder_2": "Should I go out this weekend?",
+  "input_search_placeholder_3": "Should I exercise today?",
   "aria_search_input": "Search input field",
   "loading_result": "Querying results, please wait...",
 

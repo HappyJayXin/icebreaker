@@ -2,9 +2,9 @@
   "app_title": "生活決策助手",
   "app_desc": "這個決策助手可以根據不同時間段提供行動建議，並整合了用戶自訂內容以及 API，實現了動態的決策支援。",
 
-  "input_search_placeholder_1": "例如：今晚應該加班嗎？",
-  "input_search_placeholder_2": "例如：這個週末應該出遊嗎？",
-  "input_search_placeholder_3": "例如：今天應該運動嗎？",
+  "input_search_placeholder_1": "今晚應該加班嗎？",
+  "input_search_placeholder_2": "這個週末應該出遊嗎？",
+  "input_search_placeholder_3": "今天應該運動嗎？",
   "aria_search_input": "搜尋輸入欄位",
   "loading_result": "正在查詢結果，請稍候...",
 
