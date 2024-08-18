@@ -2,6 +2,10 @@
   "app_title": "Life Decider",
   "app_desc": "This decision assistant provides action recommendations based on different time periods, integrating user-customized content and APIs to achieve dynamic decision support.",
 
+  "not_found_title": "Oops, page not found !",
+  "not_found_desc": "It seems the page you're looking for has gone missing.",
+  "not_found_btn": "Go to Homepage",
+
   "input_search_placeholder_1": "Should I work overtime tonight?",
   "input_search_placeholder_2": "Should I go out this weekend?",
   "input_search_placeholder_3": "Should I exercise today?",

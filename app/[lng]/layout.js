@@ -13,7 +13,7 @@ import { useTranslation } from "@/app/i18n";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
-  display: "fallback",
+  display: "swap",
   variable: "--font-noto-sans",
 });
 
