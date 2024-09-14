@@ -1,11 +1,74 @@
-import { describe, test, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { vi } from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
 import InputText from "@/app/components/InputText";
 
 describe("InputText", () => {
-  test("renders the InputText component", () => {
+  test("should render the InputText component", () => {
     render(<InputText placeholder="Type here..." ariaLabel="input" />);
     const inputElement = screen.getByPlaceholderText("Type here...");
+
     expect(inputElement).toBeInTheDocument();
+  });
+
+  test("should update value on input change", () => {
+    render(<InputText placeholder="Type here..." ariaLabel="input" />);
+    const inputElement = screen.getByPlaceholderText("Type here...");
+
+    fireEvent.change(inputElement, { target: { value: "Hello" } });
+    expect(inputElement.value).toBe("Hello");
+  });
+
+  test("should call onSubmit when Enter is pressed", () => {
+    const handleSubmit = vi.fn();
+    render(<InputText onSubmit={handleSubmit} placeholder="Type here..." ariaLabel="input" />);
+    const inputElement = screen.getByPlaceholderText("Type here...");
+
+    fireEvent.change(inputElement, { target: { value: "Hello" } });
+    fireEvent.keyDown(inputElement, { key: "Enter", code: "Enter" });
+
+    expect(handleSubmit).toHaveBeenCalledWith("Hello");
+  });
+
+  test("should not call onSubmit when Enter is pressed with empty input", () => {
+    const handleSubmit = vi.fn();
+    render(<InputText onSubmit={handleSubmit} placeholder="Type here..." ariaLabel="input" />);
+    const inputElement = screen.getByPlaceholderText("Type here...");
+
+    fireEvent.keyDown(inputElement, { key: "Enter", code: "Enter" });
+
+    expect(handleSubmit).not.toHaveBeenCalled();
+  });
+
+  test("should clear input when clear button is clicked", () => {
+    render(<InputText placeholder="Type here..." ariaLabel="input" />);
+    const inputElement = screen.getByPlaceholderText("Type here...");
+
+    fireEvent.change(inputElement, { target: { value: "Hello" } });
+    const clearButton = screen.getByRole("button", { name: /close/i });
+
+    fireEvent.click(clearButton);
+    expect(inputElement.value).toBe("");
+  });
+
+  test("should call onSubmit when search button is clicked", () => {
+    const handleSubmit = vi.fn();
+    render(<InputText onSubmit={handleSubmit} placeholder="Type here..." isSearch />);
+    const inputElement = screen.getByPlaceholderText("Type here...");
+
+    fireEvent.change(inputElement, { target: { value: "Hello" } });
+    const searchButton = screen.getByRole("button", { name: /search/i });
+
+    fireEvent.click(searchButton);
+    expect(handleSubmit).toHaveBeenCalledWith("Hello");
+  });
+
+  test("should not call onSubmit when search button is clicked with empty input", () => {
+    const handleSubmit = vi.fn();
+    render(<InputText onSubmit={handleSubmit} placeholder="Type here..." isSearch />);
+
+    const searchButton = screen.getByRole("button", { name: /search/i });
+    fireEvent.click(searchButton);
+
+    expect(handleSubmit).not.toHaveBeenCalled();
   });
 });

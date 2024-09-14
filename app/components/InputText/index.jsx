@@ -32,12 +32,12 @@ const InputText = ({ onSubmit, placeholder, ariaLabel, isSearch = false }) => {
         aria-label={ariaLabel}
       />
       {value && (
-        <button onClick={clearInput}>
+        <button onClick={clearInput} aria-label="close">
           <Icon type="close" />
         </button>
       )}
       {isSearch && (
-        <button onClick={() => value.trim() !== "" && onSubmit(value.trim())}>
+        <button onClick={() => value.trim() !== "" && onSubmit(value.trim())} aria-label="search">
           <Icon type="search" />
         </button>
       )}
