@@ -38,7 +38,7 @@ const Toast = ({ lng }) => {
   const alertClass = clsx("alert", {
     "alert-info": type === ALERT_TYPES.info,
     "alert-success": type === ALERT_TYPES.success,
-    "alert-warning": type === ALERT_TYPES.warn,
+    "alert-warn": type === ALERT_TYPES.warn,
     "alert-error": type === ALERT_TYPES.error,
   });
 
@@ -48,7 +48,9 @@ const Toast = ({ lng }) => {
     <div className="toast toast-center toast-bottom">
       <div className={alertClass}>
         {getIcon(type)}
-        <span className="text-sm">{t(message)}</span>
+        <span className="text-sm" aria-label="alert-message">
+          {t(message)}
+        </span>
         <button onClick={() => dispatch(hideToast())} className="btn btn-ghost btn-sm ml-2">
           ✕
         </button>

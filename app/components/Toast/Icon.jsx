@@ -4,6 +4,7 @@ export const InfoIcon = () => (
     fill="none"
     viewBox="0 0 24 24"
     className="h-6 w-6 shrink-0 stroke-current"
+    aria-label="info-icon"
   >
     <path
       strokeLinecap="round"
@@ -20,6 +21,7 @@ export const SuccessIcon = () => (
     className="h-6 w-6 shrink-0 stroke-current"
     fill="none"
     viewBox="0 0 24 24"
+    aria-label="success-icon"
   >
     <path
       strokeLinecap="round"
@@ -36,6 +38,7 @@ export const WarnIcon = () => (
     className="h-6 w-6 shrink-0 stroke-current"
     fill="none"
     viewBox="0 0 24 24"
+    aria-label="warn-icon"
   >
     <path
       strokeLinecap="round"
@@ -52,6 +55,7 @@ export const ErrorIcon = () => (
     className="h-6 w-6 shrink-0 stroke-current"
     fill="none"
     viewBox="0 0 24 24"
+    aria-label="error-icon"
   >
     <path
       strokeLinecap="round"
