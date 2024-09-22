@@ -11,7 +11,7 @@ const getRandomPlaceholder = () => {
   return placeholders[randomIndex];
 };
 
-export const useRandomPlaceholder = () => {
+const usePlaceholder = () => {
   const [placeholder, setPlaceholder] = useState("");
 
   useEffect(() => {
@@ -20,3 +20,5 @@ export const useRandomPlaceholder = () => {
 
   return placeholder;
 };
+
+export default usePlaceholder;

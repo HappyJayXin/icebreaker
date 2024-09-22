@@ -1,18 +1,33 @@
+"use client";
+
+import { useParams } from "next/navigation";
+import { useTranslation } from "@/app/i18n/client";
+import useLocalStorage from "@/app/hooks/useLocalStorage";
+
 const RecentHistory = () => {
-  return (
-    <div className="flex items-center gap-2">
-      <h2 className="text-xl">History:</h2>
-      <ul className="flex gap-2">
-        <li>
-          <span className="badge badge-primary">Badge</span>
-        </li>
-        <li>
-          <span className="badge badge-primary">Badge</span>
-        </li>
-        <li>
-          <span className="badge badge-primary">Badge</span>
-        </li>
+  const { lng } = useParams();
+  const { t } = useTranslation(lng);
+  const [history] = useLocalStorage("searchHistory");
+
+  const renderHistory = () => {
+    if (history.length === 0) {
+      return <p className="text-gray-500">{t("no_recent_searches")}</p>;
+    }
+    return (
+      <ul className="flex max-w-sm flex-wrap gap-2 overflow-x-auto">
+        {history.map((item, index) => (
+          <li key={index}>
+            <p className="badge badge-primary">{item}</p>
+          </li>
+        ))}
       </ul>
+    );
+  };
+
+  return (
+    <div className="flex items-start gap-2">
+      <h2 className="text-xl">{t("recent_history")}:</h2>
+      {renderHistory()}
     </div>
   );
 };

@@ -8,19 +8,23 @@ import InputText from "@/app/components/InputText";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDecision, setProgress, resetDecision } from "./decisionSlice";
 import { STATUS } from "@/app/constants";
-import { useRandomPlaceholder } from "./hooks";
+import usePlaceholder from "./usePlaceholder";
+import useLocalStorage from "@/app/hooks/useLocalStorage";
 
 const DecisionInput = () => {
   const router = useRouter();
   const { lng } = useParams();
   const { t } = useTranslation(lng);
-  const placeholder = useRandomPlaceholder();
+
+  const placeholder = usePlaceholder();
+  const [, setHistory] = useLocalStorage("searchHistory", []);
 
   const dispatch = useDispatch();
   const decision = useSelector((state) => state.decision);
 
   const onSubmit = (value) => {
     dispatch(fetchDecision({ query: value }));
+    setHistory(value);
   };
 
   // Navigation to result page

@@ -23,5 +23,8 @@
   "no_2": "很遺憾，答案是否定的",
   "no_3": "再想想看",
 
-  "continue_asking": "繼續提問"
+  "continue_asking": "繼續提問",
+
+  "recent_history": "最近問題記錄",
+  "no_recent_searches": "目前還沒有任何問題搜尋紀錄"
 }

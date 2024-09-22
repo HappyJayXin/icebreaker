@@ -23,5 +23,8 @@
   "no_2": "Unfortunately, the answer is no",
   "no_3": "Think again",
 
-  "continue_asking": "Continue Asking"
+  "continue_asking": "Continue Asking",
+
+  "recent_history": "Recent History",
+  "no_recent_searches": "No recent searches yet"
 }
