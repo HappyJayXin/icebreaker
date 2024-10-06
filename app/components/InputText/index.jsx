@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, forwardRef, useImperativeHandle } from "react";
 import Icon from "@/app/components/Icon";
 
-const InputText = ({ onSubmit, placeholder, ariaLabel, isSearch = false }) => {
+const InputText = ({ onSubmit, placeholder, ariaLabel, isSearch = false }, ref) => {
   const [value, setValue] = useState("");
 
   const handleChange = (event) => {
@@ -19,6 +19,10 @@ const InputText = ({ onSubmit, placeholder, ariaLabel, isSearch = false }) => {
   const clearInput = () => {
     setValue("");
   };
+
+  useImperativeHandle(ref, () => ({
+    setValue,
+  }));
 
   return (
     <label className="input input-lg input-bordered input-primary flex items-center gap-2">
@@ -45,4 +49,4 @@ const InputText = ({ onSubmit, placeholder, ariaLabel, isSearch = false }) => {
   );
 };
 
-export default InputText;
+export default forwardRef(InputText);

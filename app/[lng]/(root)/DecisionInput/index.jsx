@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, forwardRef } from "react";
 import clsx from "clsx";
 import { useParams, useRouter } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
@@ -11,7 +11,7 @@ import { STATUS } from "@/app/constants";
 import usePlaceholder from "./usePlaceholder";
 import useLocalStorage from "@/app/hooks/useLocalStorage";
 
-const DecisionInput = () => {
+const DecisionInput = (_, ref) => {
   const router = useRouter();
   const { lng } = useParams();
   const { t } = useTranslation(lng);
@@ -71,6 +71,7 @@ const DecisionInput = () => {
     <>
       <InputText
         isSearch
+        ref={ref}
         onSubmit={onSubmit}
         placeholder={t(placeholder)}
         ariaLabel={t("input_search_aria")}
@@ -89,4 +90,4 @@ const DecisionInput = () => {
   );
 };
 
-export default DecisionInput;
+export default forwardRef(DecisionInput);

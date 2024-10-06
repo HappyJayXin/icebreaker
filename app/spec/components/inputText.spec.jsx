@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import InputText from "@/app/components/InputText";
@@ -70,5 +71,22 @@ describe("InputText", () => {
     fireEvent.click(searchButton);
 
     expect(handleSubmit).not.toHaveBeenCalled();
+  });
+
+  test("should set value using ref", () => {
+    const TestComponent = () => {
+      const inputRef = useRef(null);
+      return (
+        <>
+          <InputText ref={inputRef} placeholder="Type here..." ariaLabel="input" />
+          <button onClick={() => inputRef.current.setValue("Updated value")}>Set Value</button>
+        </>
+      );
+    };
+    render(<TestComponent />);
+    const inputElement = screen.getByPlaceholderText("Type here...");
+    const setValueButton = screen.getByText("Set Value");
+    fireEvent.click(setValueButton);
+    expect(inputElement.value).toBe("Updated value");
   });
 });

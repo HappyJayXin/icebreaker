@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
 import useLocalStorage from "@/app/hooks/useLocalStorage";
 
-const RecentHistory = () => {
+const RecentHistory = ({ onSelect }) => {
   const { lng } = useParams();
   const { t } = useTranslation(lng);
   const [history] = useLocalStorage("searchHistory");
@@ -17,7 +17,12 @@ const RecentHistory = () => {
       <ul className="flex max-w-sm flex-wrap gap-2 overflow-x-auto">
         {history.map((item, index) => (
           <li key={index}>
-            <p className="badge badge-primary">{item}</p>
+            <p
+              onClick={() => onSelect(item)}
+              className="badge badge-primary cursor-pointer select-none"
+            >
+              {item}
+            </p>
           </li>
         ))}
       </ul>

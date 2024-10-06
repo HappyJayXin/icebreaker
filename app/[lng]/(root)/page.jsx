@@ -1,9 +1,19 @@
-import { useTranslation } from "@/app/i18n";
+"use client";
+
+import { useRef } from "react";
+import { useTranslation } from "@/app/i18n/client";
 import DecisionInput from "./DecisionInput";
 import RecentHistory from "./RecentHistory";
 
-const HomePage = async ({ params: { lng } }) => {
-  const { t } = await useTranslation(lng, "common");
+const HomePage = ({ params: { lng } }) => {
+  const inputRef = useRef();
+  const { t } = useTranslation(lng);
+
+  const handleSelect = (value) => {
+    if (inputRef.current) {
+      inputRef.current.setValue(value);
+    }
+  };
 
   return (
     <div className="hero min-h-full bg-base-200">
@@ -13,8 +23,8 @@ const HomePage = async ({ params: { lng } }) => {
             {t("home_title")}
           </h1>
           <p>{t("home_desc")}</p>
-          <DecisionInput />
-          <RecentHistory />
+          <DecisionInput ref={inputRef} />
+          <RecentHistory onSelect={handleSelect} />
         </div>
       </div>
     </div>
