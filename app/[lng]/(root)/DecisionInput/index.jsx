@@ -17,14 +17,14 @@ const DecisionInput = (_, ref) => {
   const { t } = useTranslation(lng);
 
   const placeholder = usePlaceholder();
-  const [, setHistory] = useLocalStorage("searchHistory", []);
+  const { addItem } = useLocalStorage("searchHistory", []);
 
   const dispatch = useDispatch();
   const decision = useSelector((state) => state.decision);
 
   const onSubmit = (value) => {
     dispatch(fetchDecision({ query: value }));
-    setHistory(value);
+    addItem(value);
   };
 
   // Navigation to result page

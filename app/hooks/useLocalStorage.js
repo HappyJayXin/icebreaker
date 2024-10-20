@@ -16,9 +16,12 @@ const useLocalStorage = (key, initialValue = []) => {
     }
   }, []);
 
-  const setValue = (value) => {
+  const addItem = (value) => {
     try {
-      const updatedHistory = [value, ...storedValue.slice(0, MAX_HISTORY_ITEMS - 1)];
+      const updatedHistory = [value, ...storedValue.filter((item) => item !== value)].slice(
+        0,
+        MAX_HISTORY_ITEMS
+      );
       setStoredValue(updatedHistory);
       window.localStorage.setItem(key, JSON.stringify(updatedHistory));
     } catch (error) {
@@ -26,7 +29,17 @@ const useLocalStorage = (key, initialValue = []) => {
     }
   };
 
-  return [storedValue, setValue];
+  const deleteItem = (value) => {
+    try {
+      const updatedHistory = storedValue.filter((item) => item !== value);
+      setStoredValue(updatedHistory);
+      window.localStorage.setItem(key, JSON.stringify(updatedHistory));
+    } catch (error) {
+      console.error(`Error deleting value from localStorage: ${error}`);
+    }
+  };
+
+  return { storedValue, addItem, deleteItem };
 };
 
 export default useLocalStorage;
